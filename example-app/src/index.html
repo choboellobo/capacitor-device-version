@@ -16,9 +16,22 @@
         This project can be used to test out the functionality of your plugin. Nothing in the
         <em>example-app/</em> folder will be published to npm when using this template, so you can create away!
       </p>
-      <label for="echoInput">Echo Text:</label>
-      <input type="text" id="echoInput" name="echoInput" value="Hello World!" />
-      <button onclick="testEcho()">Click Me!</button>
+      
+      <div style="margin-bottom: 20px;">
+        <label for="echoInput">Echo Text:</label>
+        <input type="text" id="echoInput" name="echoInput" value="Hello World!" />
+        <button onclick="testEcho()">Click Me!</button>
+      </div>
+      
+      <div style="margin-bottom: 20px;">
+        <h2>Android Version Plugin</h2>
+        <button onclick="getAndroidVersion()" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Get Android Version
+        </button>
+        <p style="font-size: 12px; color: #666;">
+          Note: This will only work on Android devices. On web/iOS, it will show an error.
+        </p>
+      </div>
     </main>
 
     <script src="./js/example.js" type="module"></script>

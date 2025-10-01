@@ -19,4 +19,15 @@ public class DeviceVersionPlugin extends Plugin {
         ret.put("value", implementation.echo(value));
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void getAndroidVersion(PluginCall call) {
+        DeviceVersion.AndroidVersionInfo versionInfo = implementation.getAndroidVersion();
+        
+        JSObject ret = new JSObject();
+        ret.put("version", versionInfo.version);
+        ret.put("apiLevel", versionInfo.apiLevel);
+        ret.put("codename", versionInfo.codename);
+        call.resolve(ret);
+    }
 }
