@@ -4,6 +4,13 @@ Un plugin de Capacitor que proporciona información detallada sobre la versión 
 
 ## Instalación
 
+### Desde GitHub (actual)
+```bash
+npm install git+https://github.com/choboellobo/capacitor-device-version.git
+npx cap sync
+```
+
+### Desde npm (próximamente)
 ```bash
 npm install capacitor-device-version
 npx cap sync
@@ -38,6 +45,8 @@ try {
 
 * [`echo(...)`](#echo)
 * [`getAndroidVersion()`](#getandroidversion)
+* [`initializeStripe(...)`](#initializestripe)
+* [`listReaders()`](#listreaders)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -71,6 +80,32 @@ getAndroidVersion() => Promise<AndroidVersionInfo>
 --------------------
 
 
+### initializeStripe(...)
+
+```typescript
+initializeStripe(options: StripeInitOptions) => Promise<{ success: boolean; }>
+```
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#stripeinitoptions">StripeInitOptions</a></code> |
+
+**Returns:** <code>Promise&lt;{ success: boolean; }&gt;</code>
+
+--------------------
+
+
+### listReaders()
+
+```typescript
+listReaders() => Promise<{ readers: StripeReader[]; }>
+```
+
+**Returns:** <code>Promise&lt;{ readers: StripeReader[]; }&gt;</code>
+
+--------------------
+
+
 ### Interfaces
 
 
@@ -81,6 +116,28 @@ getAndroidVersion() => Promise<AndroidVersionInfo>
 | **`version`**  | <code>string</code> |
 | **`apiLevel`** | <code>number</code> |
 | **`codename`** | <code>string</code> |
+
+
+#### StripeInitOptions
+
+| Prop                  | Type                 |
+| --------------------- | -------------------- |
+| **`publishableKey`**  | <code>string</code>  |
+| **`connectionToken`** | <code>string</code>  |
+| **`isTest`**          | <code>boolean</code> |
+
+
+#### StripeReader
+
+| Prop                  | Type                 |
+| --------------------- | -------------------- |
+| **`id`**              | <code>string</code>  |
+| **`label`**           | <code>string</code>  |
+| **`deviceType`**      | <code>string</code>  |
+| **`serialNumber`**    | <code>string</code>  |
+| **`batteryLevel`**    | <code>number</code>  |
+| **`isCharging`**      | <code>boolean</code> |
+| **`availableUpdate`** | <code>boolean</code> |
 
 </docgen-api>
 

@@ -52,6 +52,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    
+    // Stripe Terminal SDK for Tap to Pay
+    implementation 'com.stripe:stripe-terminal-android:3.8.0'
+    implementation 'com.stripe:stripe-android:20.43.0'
+    
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"

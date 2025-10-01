@@ -8,29 +8,85 @@
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="format-detection" content="telephone=no" />
+    <style>
+      .section {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+      }
+      .button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .button-primary { background-color: #007bff; color: white; }
+      .button-success { background-color: #28a745; color: white; }
+      .button-warning { background-color: #ffc107; color: black; }
+    </style>
   </head>
   <body>
     <main>
-      <h1>Capacitor Test Plugin Project</h1>
+      <h1>Capacitor Device Version & Stripe Plugin</h1>
       <p>
-        This project can be used to test out the functionality of your plugin. Nothing in the
-        <em>example-app/</em> folder will be published to npm when using this template, so you can create away!
+        This example demonstrates Android version detection and Stripe Terminal integration.
       </p>
       
-      <div style="margin-bottom: 20px;">
+      <div class="section">
+        <h2>🧪 Basic Echo Test</h2>
         <label for="echoInput">Echo Text:</label>
         <input type="text" id="echoInput" name="echoInput" value="Hello World!" />
-        <button onclick="testEcho()">Click Me!</button>
+        <button class="button button-primary" onclick="testEcho()">Echo Test</button>
       </div>
       
-      <div style="margin-bottom: 20px;">
-        <h2>Android Version Plugin</h2>
-        <button onclick="getAndroidVersion()" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      <div class="section">
+        <h2>📱 Android Version</h2>
+        <button class="button button-success" onclick="getAndroidVersion()">
           Get Android Version
         </button>
         <p style="font-size: 12px; color: #666;">
-          Note: This will only work on Android devices. On web/iOS, it will show an error.
+          📝 Note: This will only work on Android devices. On web/iOS, it will show an error.
         </p>
+      </div>
+
+      <div class="section">
+        <h2>💳 Stripe Terminal</h2>
+        <div style="margin-bottom: 15px;">
+          <label for="stripeKeyInput">Stripe Publishable Key:</label><br>
+          <input type="text" id="stripeKeyInput" placeholder="pk_test_..." style="width: 100%; max-width: 400px; padding: 8px; margin-top: 5px;" />
+          <p style="font-size: 11px; color: #999; margin: 5px 0;">
+            💡 Get your key from <a href="https://dashboard.stripe.com/apikeys">Stripe Dashboard</a>
+          </p>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+          <label for="connectionTokenInput">Connection Token:</label><br>
+          <input type="text" id="connectionTokenInput" placeholder="pst_test_..." style="width: 100%; max-width: 400px; padding: 8px; margin-top: 5px;" />
+          <p style="font-size: 11px; color: #999; margin: 5px 0;">
+            💡 Generate this token from your backend or use <a href="https://docs.stripe.com/terminal/sdk/js#connection-tokens">Stripe's test endpoint</a>
+          </p>
+        </div>
+        
+        <button class="button button-warning" onclick="initializeStripe()">
+          Initialize Stripe Terminal
+        </button>
+        
+        <button class="button button-success" onclick="listStripeReaders()">
+          List Readers
+        </button>
+        
+        <div style="margin-top: 15px;">
+          <p style="font-size: 12px; color: #666;">
+            📝 <strong>Requirements:</strong><br>
+            • Android device with NFC capability<br>
+            • Valid Stripe account with Terminal enabled<br>
+            • Backend server for connection tokens (production)
+          </p>
+        </div>
       </div>
     </main>
 
