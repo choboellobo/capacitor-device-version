@@ -33,6 +33,16 @@ public class DeviceVersion {
     public AndroidVersionInfo getAndroidVersion() {
         AndroidVersionInfo versionInfo = new AndroidVersionInfo();
         versionInfo.version = Build.VERSION.RELEASE;
+
+        // Parse version string to number (handles versions like "14", "13.0", etc.)
+        try {
+            versionInfo.versionNumber = Double.parseDouble(Build.VERSION.RELEASE);
+        } catch (NumberFormatException e) {
+            // If parsing fails, default to 0
+            versionInfo.versionNumber = 0.0;
+            Logger.warn("DeviceVersion", "Could not parse version number: " + Build.VERSION.RELEASE);
+        }
+
         versionInfo.apiLevel = Build.VERSION.SDK_INT;
         versionInfo.codename = Build.VERSION.CODENAME;
         return versionInfo;
@@ -152,6 +162,7 @@ public class DeviceVersion {
     // Clases auxiliares
     public static class AndroidVersionInfo {
         public String version;
+        public double versionNumber;
         public int apiLevel;
         public String codename;
     }

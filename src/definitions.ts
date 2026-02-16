@@ -1,5 +1,6 @@
 export interface AndroidVersionInfo {
   version: string;
+  versionNumber: number;
   apiLevel: number;
   codename: string;
 }
