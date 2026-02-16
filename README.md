@@ -111,11 +111,12 @@ listReaders() => Promise<{ readers: StripeReader[]; }>
 
 #### AndroidVersionInfo
 
-| Prop           | Type                |
-| -------------- | ------------------- |
-| **`version`**  | <code>string</code> |
-| **`apiLevel`** | <code>number</code> |
-| **`codename`** | <code>string</code> |
+| Prop                | Type                |
+| ------------------- | ------------------- |
+| **`version`**       | <code>string</code> |
+| **`versionNumber`** | <code>number</code> |
+| **`apiLevel`**      | <code>number</code> |
+| **`codename`**      | <code>string</code> |
 
 
 #### StripeInitOptions
